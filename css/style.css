@@ -10,12 +10,10 @@ body {
   height: 100%;
 }
 .container {
-  justify-content: center;
-  align-content: center;
   width: 100%;
   height: 100%;
 }
-.header {
+.container-header {
   padding: 10px;
   margin-top: 10px;
 }
@@ -27,18 +25,13 @@ body {
   color: #fff;
 }
 .container-text {
-  width: 100%;
-  height: 100%;
-  margin: 300px -500px;
+  width: 50%;
+  height: 50%;
+  justify-content: center;
   text-align: center;
   float: right;
 }
-.github-link {
-  font-family: Anton;
-  font-size: 20px;
-  color: #616161;
-  text-align: center;
-}
+
 a {
   color: #000000;
   text-decoration: none;
@@ -52,26 +45,45 @@ p {
   font-weight: 400;
   margin-top: 0;
 }
-@media only screen and (max-width: 768px) {
+.github-link {
+  font-family: Anton;
+  font-size: 20px;
+  color: #616161;
+  text-align: center;
+}
+/*only screen and*/
+@media only screen and (max-width: 1024px) {
   body {
     /*Photo by Aleksandar Pasaric from Pexels*/
     background-image: url("../img/constr-mobile.jpeg");
-      background-color: #ffffff;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-  overflow: hidden;
-  height: 100%;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .container {
+    display: grid;
+    grid-template-rows: 1fr 3fr;
   }
   .logo-text {
+    grid-row-start: 1;
+    grid-row-end: 2;
     background-color: rgba(0, 0, 0, 0.431);
+    text-align: left;
+    margin: 0 auto;
   }
   .container-text {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    padding-top: 50px;
     background-color: rgba(0, 0, 0, 0.308);
     color: #fff;
-    max-height: 200px;
-    margin: 600px auto;
+    text-align: center;
+    vertical-align: middle;
+    float: none;
+    height: 100%;
+    width: 100%;
+  }
+  p {
+    font-size: 25px;
   }
   .github-link {
     color: #fff;
