@@ -1,4 +1,5 @@
 body {
+  /*Photo by Valentin Antonucci from Pexels*/
   background-image: url("../img/constr.jpeg");
   background-color: #ffffff;
   background-attachment: fixed;
@@ -53,6 +54,7 @@ p {
 }
 @media only screen and (max-width: 768px) {
   body {
+    /*Photo by Aleksandar Pasaric from Pexels*/
     background-image: url("../img/constr-mobile.jpeg");
   }
   .logo-text {
