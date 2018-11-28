@@ -56,6 +56,13 @@ p {
   body {
     /*Photo by Aleksandar Pasaric from Pexels*/
     background-image: url("../img/constr-mobile.jpeg");
+      background-color: #ffffff;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -moz-background-size: cover;
+  overflow: hidden;
+  height: 100%;
   }
   .logo-text {
     background-color: rgba(0, 0, 0, 0.431);
