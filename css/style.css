@@ -8,6 +8,7 @@ body {
   -moz-background-size: cover;
   overflow: hidden;
   height: 100%;
+  margin: 0;
 }
 .container {
   width: 100%;
@@ -20,30 +21,31 @@ body {
 .logo-text {
   font-family: Anton;
   font-size: 30px;
-  font-style: oblique;
   font-weight: 700;
+  font-style: oblique;
   color: #fff;
+  background-color: rgba(0, 0, 0, 0.431);
 }
 .container-text {
   width: 50%;
   height: 50%;
-  justify-content: center;
   text-align: center;
   float: right;
 }
 
 a {
-  color: #000000;
+  color: #000;
   text-decoration: none;
   margin-top: 0;
+  cursor: pointer;
 }
 p {
   font-family: Anton;
-  font-size: 45px;
-  font-variant: small-caps;
-  text-align: center;
+  font-size: 55px;
   font-weight: 400;
   margin-top: 0;
+  font-variant: small-caps;
+  text-align: center;
 }
 .github-link {
   font-family: Anton;
@@ -51,7 +53,6 @@ p {
   color: #616161;
   text-align: center;
 }
-/*only screen and*/
 @media only screen and (max-width: 1024px) {
   body {
     /*Photo by Aleksandar Pasaric from Pexels*/
@@ -73,9 +74,8 @@ p {
   .container-text {
     grid-row-start: 3;
     grid-row-end: 4;
-    padding-top: 50px;
-    background-color: rgba(0, 0, 0, 0.308);
-    color: #fff;
+    background-color: rgba(117, 117, 117, 0.335);
+    color: rgb(255, 255, 255);
     text-align: center;
     vertical-align: middle;
     float: none;
@@ -86,7 +86,8 @@ p {
     font-size: 25px;
   }
   .github-link {
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-align: center;
+    font-size: 15px;
   }
 }
