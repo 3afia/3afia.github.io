@@ -1,26 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lafia | Welcome</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="css/styles.css" />
+		<title>Abdellah Lafia | Welcome</title>
+	</head>
+	<body>
+	<!-- Header and navbar -->
+	<header>
+		<div class="nav">
+				<div class="logo">
+					<a href="#">LAFIA</a>
+				</div>
+				<div class="menu-btn col">
+					<div class="menu-btn-item"></div>
+					<div class="menu-btn-item"></div>
+					<div class="menu-btn-item"></div>
+				</div>
+				<ul class="menu">
+					<li><a href="#home">HOME</a></li>
+					<li><a href="#playground">PLAYGROUND</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+				</ul>
+			</div>
+	</header>
+	
+		<!-- WELCOME -->
+		<div class="welcome-container col" id="home">
+			<div id="typed-strings">
+				<div>
+					<h1>^1100My name is <strong>Abdellah Lafia</strong>,</h1>
+					<br />
+					<h2>I'm a <span class="prog">programmer </span> and  a <span class="solar">sustainable</span> and <span class="solar">renewable</span> energy engineer</h2></div>
+			</div>
+			
+			<span id="typed"></span>
+		</div>
 
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="container-header">
-        <a href="https://3afia.github.io/"
-          ><span class="logo-text">lafia.</span>
-        </a>
-      </div>
-      <div class="container-text">
-        <p>under construction</p>
-        <a class="github-link" href="https://github.com/3afia" target="_blank" rel="noopener noreferrer"
-          >GitHub|Abdellah Lafia</a
-        >
-      </div>
-    </div>
-  </body>
+		<!-- PROJECTS  -->
+		<div class="playground-container col" id="playground">
+			<div class="page-title">
+				<h1> #P<span class="b">l</span>a<span class="b">y</span>g<span class="b">r</span>o<span class="b">u</span>n<span class="b">d</span></h1>
+			</div> 
+			<div class="projects">
+				<a href="projects.html" target="_blank" rel="noopener noreferrer">
+					<div class="card col">
+						<img src="img/coding.jpeg" alt="project blah blah" height=>
+						<div class="col">
+							<h2>PROJECTS</h2>
+						</div>
+					</div>
+				</a>
+				<a href="blogs.html" target="_blank" rel="noopener noreferrer">
+					<div class="card col">
+						<img src="img/blog.jpg" alt="project blah blah" height=>
+						<div class="col">
+							<h2>BLOG POSTS</h2>
+						</div>
+					</div>
+				</a>
+			</div>	
+		</div>
+		<!-- CONTACT  -->
+		<div class="contact-container col" id="contact">
+			<div class="page-title">
+				<h1> #<span class="w">C</span>o<span class="w">n</span>t<span class="w">a</span>c<span class="w">t</span></h1>
+			</div>
+			
+			<div class="content col">
+				<h1 id="email" style="text-decoration:line-through">*****@gmail.com</h1><span style="background-color:yellow">use my GitHub</span>
+				<button id="email-btn" disabled>copy</button>
+			</div>
+			<h1 style="font-size=72; font-family: 'Libre Barcode 39 Text', cursive; color:#000;"> LAFIA</h1>
+		</div>
+		
+			<!-- footer: sm links & copyright -->
+		<div class="footer-container col">
+			<div class="links row">
+				<ul>
+					<li><a href="https://github.com/3afia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+				</ul>
+			</div>
+			<div class="copyright">
+				<a href="https://3afia.github.io">Made by Abdellah Lafia | © 2019</a>
+			</div>
+		</div>
+		
+	<!-- scripts -->
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+	<script src="js/main.js"></script>
+	</body>
 </html>
