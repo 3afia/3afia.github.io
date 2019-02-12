@@ -1,0 +1,11 @@
+{
+  "name": "Abdellah Lafia | Welcome",
+  "short_name": "3afia",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/index.html"
+}
+}
