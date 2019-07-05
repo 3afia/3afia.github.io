@@ -10,6 +10,7 @@
 		<meta name="description" content="self taught programmer with a bachlores in sustainable and renewable enrgy engineering.">
 		<meta name="keywords" content="react,javascript,js,express,
 		mern,mongodb,mongo db,nodejs,node js,self taught,blog,project,website,design,google analytics,ga">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
 		<!-- Google Analytics -->
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -25,80 +26,64 @@
 	</head>
 	<body>
 	<!-- Header and navbar -->
-	<header>
-		<div class="nav">
-				<div class="logo">
-					<a href="#">LAFIA</a>
-				</div>
-				<div class="menu-btn col">
-					<div class="menu-btn-item"></div>
-					<div class="menu-btn-item"></div>
-					<div class="menu-btn-item"></div>
-				</div>
-				<ul class="menu">
-					<li><a href="#home">HOME</a></li>
-					<li><a href="#playground">PLAYGROUND</a></li>
-					<li><a href="#contact">CONTACT</a></li>
-				</ul>
+	<div class="header">
+			<div class="logo">
+				<a href="#">LAFIA</a>
 			</div>
-	</header>
+			<input type="checkbox" id="chk">
+			<label for="chk" class="show-menu-btn">
+				<i class="fas fa-bars"></i>
+			</label>
+			<ul class="menu">
+				<a href="#home">HOME</a>
+				<a for="chk" href="#playground">PLAYGROUND</a>
+				<a for="chk" href="#contact">CONTACT</a>
+			<label for="chk" class="hide-menu-btn">
+				<i class="fas fa-times"></i>
+			</label>
+			</ul>
+		</div>
 	
 		<!-- WELCOME -->
-		<div class="welcome-container col" id="home">
-			<div id="typed-strings">
-				<div>
-					<h1>^1100My name is <strong>Abdellah Lafia</strong>,</h1>
-					<br />
-					<h2>I'm a <span class="prog">programmer </span> and  a <span class="solar">sustainable</span> and <span class="solar">renewable</span> energy engineer</h2></div>
-			</div>
-			
-			<span id="typed"></span>
+		<div class="welcome" id="home">
+				<h1><strong>Abdellah Lafia</strong>.</h1>
 		</div>
 
 		<!-- PROJECTS  -->
-		<div class="playground-container col" id="playground">
-			<div class="page-title">
-				<h1> #P<span class="b">l</span>a<span class="b">y</span>g<span class="b">r</span>o<span class="b">u</span>n<span class="b">d</span></h1>
+		<div class="playground" id="playground">
+			<div class="title">
+				<h1> Playground</h1>
 			</div> 
-			<div class="projects">
-				<a href="projects.html" target="_blank" rel="noopener noreferrer">
-					<div class="card col">
-						<img src="img/coding.jpeg" alt="project blah blah" height=>
-						<div class="col">
-							<h2>PROJECTS</h2>
-						</div>
-					</div>
-				</a>
+			<div class="content">
+				<div>
+					<a href="projects.html" target="_blank" rel="noopener noreferrer">
+						<h1 class="coming-soon"> PROJECTS</h1>
+					</a>
+				</div>
+				<div>
 				<a href="blogs.html" target="_blank" rel="noopener noreferrer">
-					<div class="card col">
-						<img src="img/blog.jpeg" alt="project blah blah" height=>
-						<div class="col">
-							<h2>BLOG POSTS</h2>
-						</div>
-					</div>
+					<h1 class="coming-soon"> BLOG POSTS</h1>
 				</a>
-			</div>	
+				</div>
+			</div>
 		</div>
 		<!-- CONTACT  -->
-		<div class="contact-container col" id="contact">
-			<div class="page-title">
-				<h1> #<span class="w">C</span>o<span class="w">n</span>t<span class="w">a</span>c<span class="w">t</span></h1>
+		<div class="contact" id="contact">
+			<div class="title">
+				<h1>Contact Me</h1>
 			</div>
-			
-			<div class="content col">
-				<h1 id="email" style="text-decoration:line-through">*****@gmail.com</h1><span style="background-color:yellow">use my <a href="https://github.com/3afia" target="_blank" rel="noopener noreferrer">GitHub</a></span>
-				<button id="email-btn" disabled>copy</button>
+			<div class="content">
+				<h1>
+					<a href="https://github.com/3afia"
+						target="_blank"
+						rel="noopener noreferrer">
+						GitHub
+					</a>
+				</h1>
 			</div>
-			<h1 style="font-size=72; font-family: 'Libre Barcode 39 Text', cursive; color:#000;"> LAFIA</h1>
-		</div>
-		
+		</div>	
 			<!-- footer: sm links & copyright -->
-		<div class="footer-container col">
-			<div class="links row">
-				<ul>
-					<li><a href="https://github.com/3afia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-				</ul>
-			</div>
+		<div class="footer">	
 			<div class="copyright">
 				<a href="https://3afia.github.io">Made by Abdellah Lafia | © 2019</a>
 			</div>

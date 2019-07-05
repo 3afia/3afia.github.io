@@ -1,5 +1,5 @@
 // fade when scrolling down and show when scrolling up
-const menu = document.querySelector('.menu'),
+/*const menu = document.querySelector('.menu'),
 	  menuBtn = document.querySelector('.menu-btn');
 let menuBtnClicked = false;
 menuBtn.addEventListener('click', openMenu);
@@ -24,7 +24,7 @@ function openMenu() {
 			menuBtn.style.transform = 'translateY(-5px)', 'translateX(5px)';
 			menuBtnClicked = !menuBtnClicked;	
 		}
-}
+}/*
 // using typed library
 let strings =  document.getElementById("typed-strings");
 let typedId =  document.getElementById("typed");
@@ -39,7 +39,7 @@ const typed = new Typed(typedId, {
 	contentType: 'html',
   });
 
-
+*/
 
 
 
