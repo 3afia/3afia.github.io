@@ -1,0 +1,5 @@
+*
+!*.html
+!.gitignore
+!local_server.sh
+!*.css
