@@ -2,6 +2,6 @@
 !*.html
 !.gitignore
 !local_server.sh
-!*.css
+!css/
 !CNAME
-!favicon.ico
+!images/
