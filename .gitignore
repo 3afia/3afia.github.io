@@ -1,7 +1,3 @@
-*
-!*.html
-!.gitignore
-!local_server.sh
-!css/
-!CNAME
-!images/
+.gitignore
+*.log
+
