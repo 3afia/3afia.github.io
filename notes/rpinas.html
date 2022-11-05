@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>RPI0 NAS</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="../css/bootstrap4-neon-glow.min.css">
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/font-hack/2.020/css/hack.min.css'>
+    
+  </head>
+  <body>
+
+  <div class="navbar-dark text-white">
+    <div class="container">
+      <nav class="navbar px-0 navbar-expand-lg navbar-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a href="https://serserv.com/" class="p-3 text-decoration-none text-light">~</a>
+            <a href="https://www.github.com/3afia" target="_blank" rel="noopener noreferrer" class="p-3 text-decoration-none text-light">GitHub</a>
+            <a href="https://www.linkedin.com/in/abdellah-lafia" target="_blank" rel="noopener noreferrer" class="p-3 text-decoration-none text-light">LinkedIn</a>
+            <a href="../../notes.html" class="p-3 text-decoration-none text-light">Scratch Notes</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+
+<div class="jumbotron bg-transparent mb-0 radius-0">
+  <div class="container">
+      <div class="row">
+        <div class="col-xl-10">
+          <h2 class="display-3">Network Attached Sotrage in Raspberry Pi Zero W</h2>
+          <div class="text-darkgrey text-mono my-2">{ "env": "Ubuntu 22.04", "RPi0W", "Raspbian", "last_modified": 05/Nov/2022" }</div>
+          <div class="container py-4">
+            <p>I have a Raspberry Pi zero W, a 32GB SD flash memory card, 4x8GB Cruz USB flash memory sticks. All were salvaged from projects I had built before and for some reason pulled the plug on them.</p><p>This project is attempting to prove nothing, it is a "for fun" project. The USB sticks will probably fail if extensive read/write operations were done on them. I will not be going hard on these poor sticks, hence I belive this NAS will last for a while.</p><p>I will be creating a logical volume using the 4x8GB USB sticks, then creating a file system and mounting it somewhere (also making it persistent via fstab). Finally I will create a shared folder and make it accessible to the local network via smb.</p>
+            <div class="container py-5">
+              <h5 class="mt-5 text-grey">Housekeeping</h5>
+              <p>I will skip the installation of Raspbian on the RPi0W, I have already went throught this process many times already, hence no need to take notes.</p><p> Connecting the RPi to a monitor via mini HDMI cable and an external keyboard, I first will need to turn the wifi on. In the terminal, typing the following code will enable it: <code>rfkill unblock wlan</code> next I need to start and enable the <code>NetworkManager</code> via this command: <code> for i in start enable restart; do sudo systemctl $i NetworkManager;done</code></p><p>Since this is a RPi0 with wifi capabilities, I will be adding my local routers access points SSID and password to be able to access the internet and the local network, the following command will help me achieving this: <code> sudo nmcli dev wifi con $SSID password $PASSWORD </code></p><p> I need vim, im coding this page using vim, so why not add vim to this server? <code>sudo apt install vim -y</code>, hmm I think I forgot to update:<code> sudo apt update && sodu upgrade -y && sudo autoremove -y</code></p>
+            </div>
+            <div class="container py-5">
+              <h5 class="mt-5 text-grey">SSH</h5>
+              <p>This is easily done via a google search of "how to harden ssh config", none the less, run: <code> sudo vim /etc/ssh/sshd_config</code> and modify the following: <br><code>#port 22<br>PermitRootLogin no<br></code> etc.<br> Agian, Google has the answer on how to do this, look it up.</p><p>Next you will need to restart the SSH service for the changes to take effect, or to turn it on in the first place: <code>for i in start enable restart; do sudo systemctl $i ssh; done</code></p>
+            </div>
+            <div class="container py-5">
+              <h5 class="mt-5 text-grey">LVM2</h5>
+              <p>Install lvm2 to create the logincal volume: <code>sudo apt install lvm2 -y</code></p>
+              <p>Create a physical volume: <code> sudo pvcreate /dev/[flash drives devices]*</code></p>
+              <p>Create a VGroup and call it nas: <code>sudo vgcreate nas /dev/[all the physical volumes</code></p>
+              <p>Create the logical volume: <code>sudo lvcreate -L 59G -n nas nas</code></p>
+              <p>Now we can create a filesystem from the lv I just created: <code>sudo mkfs.ext4 -m 0 /dev/nas/nas</code></p>
+              <p>To mount this filesystem on reboot, add: <code>/dev/nas/nas ext4 defaults 0 2</code> to: <code>/etc/fstab</code></p>
+              <p>Make sure to create the <code>/nas</code> you just refrenced in the <code>fstab</code> before remounting: <code> mkdir /nas && mount -a</code></p>
+              <p>Finally, you need to change the ownership of the content of <code>/nas</code> to you/me: <code> sudo shown -R user /nas</code></p>
+            </div>
+            <div class="container py-5">
+              <h5 class="mt-5 text-grey">SAMBA</h5>
+              <p>Install samba on the RPi0: <code>sudo apt install samba samba-common -y</code></p>
+              <p>You need to add the following to <code>/etc/samba/smb.conf<br>[NAS]<br>path = /nas/<br>writeable = yes<br>create mask = 0775<br>directory mask = 0775<br>public = no<br></code></p>
+              <p>Restart the smbd: <code> sudo systemctl restart smbd</code></p>
+        </div>
+          <p> Now you can access this share by simply visiting: <code>smb://RPi0_IP</code></p>
+       </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container py-5">
+  <h3>Please reach out via <a href="https://github.com/3afia" target="_blank" rel="noopener noreferrer">GitHub</a></h3>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  </body>
+</html>
